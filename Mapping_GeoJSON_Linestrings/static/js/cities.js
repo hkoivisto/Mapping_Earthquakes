@@ -1,5 +1,5 @@
 // An array containing each city's location, state, and population.
-var cities = [{
+let cities = [{
     location: [40.7128, -74.0059],
     city: "New York City",
     state: "NY",
@@ -24,9 +24,9 @@ var cities = [{
     population: 3990456
   },
   {
-    location: [41.256, -95.934502],
-    city: "Omaha",
-    state: "NE",
-    population: 446599
+    location: [33.4484, -112.0740],
+    city: "Phoenix",
+    state: "AZ",
+    population: 1660272
   }
   ];

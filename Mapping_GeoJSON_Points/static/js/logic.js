@@ -2,8 +2,8 @@
 console.log("working");
 
 
-// Create the map object with center at the San Francisco airport.
-//let map = L.map('mapid').setView([30, 30], 2);
+// // Create the map object with center at the San Francisco airport.
+// let map = L.map('mapid').setView([37.5, -122.5], 10);
 
 // // Add GeoJSON data.
 // let sanFranAirport =
@@ -81,14 +81,14 @@ let baseMaps = {
     Dark: dark
   };  
 
-  // Create the map object with center, zoom level and default layer.
+  //Create the map object with center, zoom level and default layer.
 let map = L.map('mapid', {
     center: [30, 30],
     zoom: 2,
     layers: [streets]
 })
 
-// Pass our map layers into our layers control and add the layers control to the map.
+// // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
 // Accessing the airport GeoJSON URL
