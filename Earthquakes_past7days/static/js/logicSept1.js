@@ -37,13 +37,39 @@ L.control.layers(baseMaps).addTo(map);
 let earthquakeData = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Create a style for the lines.
-let myStyle = {
-    color: "#ffffa1",
-    weight: 2
+function styleInfo(feature) {
+    return {
+      opacity: 1,
+      fillOpacity: 1,
+      fillColor: "#ffae42",
+      color: "#000000",
+      radius: getRadius(feature.properties.mag),
+      stroke: true,
+      weight: 0.5
+    };
 }
+// This function determines the radius of the earthquake marker based on its magnitude.
+// Earthquakes with a magnitude of 0 will be plotted with a radius of 1.
+function getRadius(magnitude) {
+    if (magnitude === 0) {
+      return 1;
+    }
+    return magnitude * 4;
+  };
 
 // Grabbing our GeoJSON data.
 d3.json(earthquakeData).then(function(data) {
     // Creating a GeoJSON layer with the retrieved data.
-  L.geoJson(data).addTo(map);
-});
+// Creating a GeoJSON layer with the retrieved data.
+L.geoJson(data, {
+
+    // We turn each feature into a circleMarker on the map.
+    
+    pointToLayer: function(feature, latlng) {
+                console.log(data);
+                return L.circleMarker(latlng);
+            },
+          // We set the style for each circleMarker using our styleInfo function.
+        style: styleInfo
+        }).addTo(map);
+    });
